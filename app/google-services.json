@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "940482080568",
+    "firebase_url": "https://songapp-d1fcb.firebaseio.com",
+    "project_id": "songapp-d1fcb",
+    "storage_bucket": "songapp-d1fcb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:940482080568:android:37df8c3ccfbb9740",
+        "android_client_info": {
+          "package_name": "io.hasura.songapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "940482080568-hvk441siactmrohtq0lcp89uvchqvu5f.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "io.hasura.songapp",
+            "certificate_hash": "a4276e30adb440a238ba465fb1c439c2841990c8"
+          }
+        },
+        {
+          "client_id": "940482080568-fl091ufr4j547r73athdounp87l8egro.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBE3spyK87tzhsBNRdhB592-7AZLi9ZXUQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "940482080568-fl091ufr4j547r73athdounp87l8egro.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
