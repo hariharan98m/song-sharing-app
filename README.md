@@ -5,7 +5,7 @@ This app basically helps you to make new friends, share songs and comment on eac
 
 # Please find the Demo Video to my App @ https://www.youtube.com/watch?v=qO0Oo21XaOU
 
-## Download my app @ https://drive.google.com/open?id=11Ux8GcFdJk79OfFfoqFjcE8Xu_twPGoS or from the apk file in the Home Dir :)
+## Download my app @ https://drive.google.com/open?id=11Ux8GcFdJk79OfFfoqFjcE8Xu_twPGoS or from the apk file in the app Dir :)
 
 ### Why did I choose this idea?
 
