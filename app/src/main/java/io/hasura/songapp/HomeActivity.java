@@ -4,7 +4,9 @@ import android.animation.Animator;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.content.pm.Signature;
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.graphics.Color;
@@ -35,6 +37,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Html;
 import android.transition.TransitionManager;
+import android.util.Base64;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -69,6 +72,8 @@ import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Target;
 
 import java.io.File;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -187,6 +192,21 @@ public class HomeActivity extends AppCompatActivity implements GuysYouMayKnowFra
         viewPager = (ViewPager) findViewById(R.id.viewPagerFriends);
         viewPager.setPageTransformer(true,new ZoomOutPageTransformer());
         //Create the adapter linking the fragment
+        try {
+            PackageInfo info = getPackageManager().getPackageInfo(
+                    "io.hasura.songapp",
+                    PackageManager.GET_SIGNATURES);
+            for (Signature signature : info.signatures) {
+                MessageDigest md = MessageDigest.getInstance("SHA");
+                md.update(signature.toByteArray());
+                Log.d("KeyHash:", Base64.encodeToString(md.digest(), Base64.DEFAULT));
+            }
+        } catch (PackageManager.NameNotFoundException e) {
+
+        } catch (NoSuchAlgorithmException e) {
+
+        }
+
 
         pagerAdapter = new GuysYouMayKnowAdapter(getSupportFragmentManager(), fr, conf);
         //Get the data for the adapter
@@ -202,6 +222,7 @@ public class HomeActivity extends AppCompatActivity implements GuysYouMayKnowFra
             public void onDataChange(DataSnapshot dataSnapshot) {
                 int i=0;
                 pagerAdapter.requestList= new ArrayList<ViewPagerFriends>();
+                pagerAdapter.notifyDataSetChanged();
                 for (DataSnapshot childSnapshot: dataSnapshot.getChildren()) {
                     i++;
                     final String clubkey = childSnapshot.getKey();
@@ -212,7 +233,6 @@ public class HomeActivity extends AppCompatActivity implements GuysYouMayKnowFra
                             @Override
                             public void onDataChange(DataSnapshot dataSnapshot) {
                                 Data d = dataSnapshot.getValue(Data.class);
-                                Log.i("REQ"+clubkey, d.email);
                                 left_arrow.setVisibility(View.VISIBLE);
                                 right_arrow.setVisibility(View.VISIBLE);
 
@@ -224,8 +244,10 @@ public class HomeActivity extends AppCompatActivity implements GuysYouMayKnowFra
                                 if(!containsReq(pagerAdapter.requestList, clubkey)) {
                                     if (!d.city.isEmpty())
                                         pagerAdapter.requestList.add(new ViewPagerFriends(clubkey, d.city, true));
-                                    else
+                                    else {
+                                        Log.i("EMAIL"+clubkey, d.email);
                                         pagerAdapter.requestList.add(new ViewPagerFriends(clubkey, d.email, true));
+                                    }
                                     pagerAdapter.notifyDataSetChanged();
                                 }
 
@@ -254,18 +276,19 @@ public class HomeActivity extends AppCompatActivity implements GuysYouMayKnowFra
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 int i=0;
+                Log.i("Change in Confirm", "fired");
                 pagerAdapter.confirmList= new ArrayList<ViewPagerFriends>();
+                pagerAdapter.notifyDataSetChanged();
                 for (DataSnapshot childSnapshot: dataSnapshot.getChildren()) {
                     i++;
                     final String clubkey = childSnapshot.getKey();
-
                     boolean flag= childSnapshot.getValue(Boolean.class);
                     if(flag) {
                         myRef.child(clubkey).addListenerForSingleValueEvent(new ValueEventListener() {
                             @Override
                             public void onDataChange(DataSnapshot dataSnapshot) {
                                 Data d = dataSnapshot.getValue(Data.class);
-                                Log.i("CONFIRM"+clubkey, d.email);
+
                                 left_arrow.setVisibility(View.VISIBLE);
                                 right_arrow.setVisibility(View.VISIBLE);
 
@@ -277,8 +300,10 @@ public class HomeActivity extends AppCompatActivity implements GuysYouMayKnowFra
                                 if(!containsReq(pagerAdapter.confirmList, clubkey)) {
                                     if (!d.city.isEmpty())
                                         pagerAdapter.confirmList.add(new ViewPagerFriends(clubkey, d.city, true));
-                                    else
+                                    else {
                                         pagerAdapter.confirmList.add(new ViewPagerFriends(clubkey, d.email, true));
+                                        Log.i("CONFIRM"+clubkey, d.email);
+                                    }
                                     pagerAdapter.notifyDataSetChanged();
                                 }
 

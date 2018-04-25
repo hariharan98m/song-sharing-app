@@ -135,7 +135,7 @@ public class SongActivity extends AppCompatActivity implements View.OnTouchListe
                     bundl.putString("friendname", FirebaseAuth.getInstance().getCurrentUser().getDisplayName());
                     bundl.putParcelable("friend", d);
                     his_songs.setText(FirebaseAuth.getInstance().getCurrentUser().getDisplayName()+"'s songs");
-                    FriendProfileFragment NS= new FriendProfileFragment(SongActivity.this);
+                    FriendProfileFragment NS= new FriendProfileFragment();
                     NS.setArguments(bundl);
                     getSupportFragmentManager().beginTransaction()
                             .add(R.id.profileLayout, NS).commit();
@@ -151,7 +151,7 @@ public class SongActivity extends AppCompatActivity implements View.OnTouchListe
             bundl.putString("friendname", d.username);
             his_songs.setText(d.username+"'s songs");
             bundl.putParcelable("friend", d);
-            FriendProfileFragment NS= new FriendProfileFragment(this);
+            FriendProfileFragment NS= new FriendProfileFragment();
             NS.setArguments(bundl);
             getSupportFragmentManager().beginTransaction()
                     .add(R.id.profileLayout, NS).commit();

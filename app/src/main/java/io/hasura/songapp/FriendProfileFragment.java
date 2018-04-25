@@ -24,15 +24,10 @@ public class FriendProfileFragment extends Fragment {
 
     TextView fname, profile;
     ImageView dp;
-    Context c;
     TextView city;
 
-    public FriendProfileFragment(Context c) {
-        this.c = c;
-    }
-
     public FriendProfileFragment() {
-
+        int a=10;
     }
 
 
@@ -47,7 +42,6 @@ public class FriendProfileFragment extends Fragment {
 
         String name= getArguments().getString("friendname");
         Data h= (Data)getArguments().get("friend");
-
         fname.setText(name);
 
         String profileStr= setString(h);
@@ -57,7 +51,7 @@ public class FriendProfileFragment extends Fragment {
         else profile.setText(Html.fromHtml(profileStr));
 
         if(h.getDp_url()!=null && !h.getDp_url().isEmpty())
-            Picasso.with(c).load(h.getDp_url()).transform(new CircleTransform()).into(dp);
+            Picasso.with(getActivity()).load(h.getDp_url()).transform(new CircleTransform()).into(dp);
 
         if(h.getCity()!=null && (h.getCity().length()!=0) ) {
             city.setVisibility(View.VISIBLE);
