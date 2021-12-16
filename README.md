@@ -3,17 +3,17 @@
 
 This app basically helps you to make new friends, share songs and comment on each other's song sense. 
 
-# Please find the Demo Video to my App @ https://www.youtube.com/watch?v=qO0Oo21XaOU
+**Find the Demo Video to my App @ https://www.youtube.com/watch?v=qO0Oo21XaOU**
 
-## Download my app @ https://drive.google.com/open?id=1N4N49IpDK1J5DSyA_YyelxtbcjkmFOgN or from the apk file in the app Dir :)
+**Download my app @ https://drive.google.com/open?id=1N4N49IpDK1J5DSyA_YyelxtbcjkmFOgN or from the apk file in the app Dir**
 
 ### Why did I choose this idea?
 
-I swear there isn’t a guy who isn’t ear-plugged in long journeys, though I’ve seen a rare bunch of guys hitting the pad hard with first shooter games and Clash Royale of course :). If that’s how we are — fond of listening melody than gearing up for a clan clash — then this is a dream come true.
+Theres is not a person ear-plugged in long journeys, though I have seen a rare bunch of guys hitting the pad hard with first shooter games and Clash Royale of course :). If that’s how we are — fond of listening melody than gearing up for a clan clash — then this is a day saver.
 
 ### What’s so good about a Song?
 
-It makes you calm and clear as water. Peace and carefree oblivion is priceless you know.
+It makes you calm and clear as water. Peace and carefree oblivion.
 
 ## Making it Intriguing-
 
