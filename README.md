@@ -1,5 +1,4 @@
-# SongSharingApp
-
+# Song Sharing App
 
 This app basically helps you to make new friends, share songs and comment on each other's song sense. 
 
